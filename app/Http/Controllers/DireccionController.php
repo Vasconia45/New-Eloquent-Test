@@ -8,7 +8,8 @@ use App\Models\Direccione;
 class DireccionController extends Controller
 {
     public function show(){
-        return view('layouts.createdirecciones');
+        $direcciones = Direccione::all();
+        return view('layouts.createdirecciones', ['direcciones' => $direcciones]);
     }
 
     public function create(Request $request){
@@ -19,5 +20,9 @@ class DireccionController extends Controller
         $direccion->municipio = $request->municipio;
         $direccion->save();
         return redirect('/direccion')->with(['successful_message' => "La direccion se añadio perfectamente."]);
+    }
+
+    public function delete($id){
+        dd($id);
     }
 }

@@ -1,23 +1,23 @@
 @extends('layouts.main')
 
-@section('title', Asign)
+@section('title', "Asign")
 
 @section('content')
-<form action="{{ route('') }}" method="POST">
+<form action="{{ route('usuario.asign') }}" method="POST">
                             @csrf
                             <div>
                                 <div>
-                                    <select name="user" id="user">
-                                        @foreach($users as $user)
-                                            <option value="{{ $user->name }}"> {{ $user->name }}</option>
+                                    <select name="usuario" id="usuario">
+                                        @foreach($usuarios as $usuario)
+                                            <option value="{{ $usuario->id }}"> {{ $usuario->nombre }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-
+                                    <br>
                                 <div>
-                                    <select name="car" id="car">
-                                        @foreach($cars as $car)
-                                            <option value="{{ $car->plate }}">{{ $car->plate }}</option>
+                                    <select name="direccion" id="direccion">
+                                        @foreach($direcciones as $direccion)
+                                            <option value="{{ $direccion->id }}">{{ $direccion->calle }}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -20,10 +20,13 @@ Route::view('/', 'layouts.main');
 Route::controller(UsuarioController::class)->group(function(){
     Route::get('/usuario', 'show')->name('newuser');
     Route::post('/usuario', 'create')->name('usuario.create');
+    Route::delete('/usuario/{id}', 'delete')->name('usuario.delete');
     Route::get('/usuario/asign', 'showasign')->name('asign');
+    Route::post('/usuario/asign', 'asign')->name('usuario.asign');
 });
 
 Route::controller(DireccionController::class)->group(function(){
     Route::get('/direccion', 'show')->name('newdireccion');
     Route::post('/direccion', 'create')->name('direccion.create');
+    Route::delete('/direccion/{id}', 'delete')->name('direccion.delete');
 });

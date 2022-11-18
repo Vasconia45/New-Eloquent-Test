@@ -2,6 +2,9 @@
 <html>
     <head></head>
     <body>
+    @if(session('successful_message'))
+        {{ session('successful_message') }}
+    @endif
         <div>
             <h1>@yield('title', "Menu")</h1>
             <div>

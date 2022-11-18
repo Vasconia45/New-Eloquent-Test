@@ -3,9 +3,6 @@
 @section('title', "New User")
 
 @section('content')
-    @if(session('successful_message'))
-        {{ session('successful_message') }}
-    @endif
     <div>
         <form action="{{ route('usuario.create') }}" method="POST">
         @csrf
@@ -27,5 +24,15 @@
                 <button type="submit">Add Usuario</button>
             </div>
         </form>
+
+        <div>
+            <table>
+                <thead>Usuarios:</thead>
+                <br>
+                <tbody>
+                    @each('partials.usuario', $usuarios, 'usuario', 'partials.empty')
+                </tbody>
+            <table>
+        </div>
     </div>
 @endsection

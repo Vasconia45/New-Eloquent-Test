@@ -3,9 +3,6 @@
 @section('title', "New Direccion")
 
 @section('content')
-    @if(session('successful_message'))
-        {{ session('successful_message') }}
-    @endif
     <div>
         <form action="{{ route('direccion.create') }}" method="POST">
         @csrf
@@ -41,5 +38,15 @@
                 <button type="submit">Add Direccion</button>
             </div>
         </form>
+
+        <div>
+            <table>
+                <thead>Direcciones:</thead>
+                <br>
+                <tbody>
+                     @each('partials.direccion', $direcciones, 'direccion', 'partials.empty')
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection

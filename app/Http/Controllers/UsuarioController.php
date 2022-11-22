@@ -36,6 +36,8 @@ class UsuarioController extends Controller
     }
 
     public function delete($id){
-        dd($id);
+        $usuario = Usuario::find($id);
+        $usuario->delete();
+        return redirect('/usuario')->with(['successful_message' => "The user has been deleted corretcly."]);
     }
 }

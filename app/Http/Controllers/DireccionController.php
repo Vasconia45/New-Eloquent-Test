@@ -23,6 +23,8 @@ class DireccionController extends Controller
     }
 
     public function delete($id){
-        dd($id);
+        $direccion = Direccione::find($id);
+        $direccion->delete();
+        return redirect('/direccion')->with(['successful_message' => "The direccion has been deleted correctly"]);
     }
 }

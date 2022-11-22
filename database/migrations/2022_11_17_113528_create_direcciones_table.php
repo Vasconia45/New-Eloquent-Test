@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('direcciones', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('calle');
             $table->integer('numero');
             $table->integer('cod_postal');
             $table->string('municipio');
-            $table->integer('usuario_id')->unsigned()->nullable();
+            $table->bigInteger('usuario_id')->unsigned()->unique();
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

@@ -19,4 +19,8 @@ class Usuario extends Model
     public function direccion(){
         return $this->hasOne('App\Models\Direccione');
     }
+
+    public function posts(){
+        return $this->belongsTo('App\Models\Post');
+    }
 }

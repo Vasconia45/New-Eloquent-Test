@@ -1,14 +1,13 @@
-<th>
+<tr>
+    <td>{{ $direccion->id }}</td>
+    <td>{{ $direccion->calle }}</td>
+    <td>{{ $direccion->numero }}</td>
+    <td>{{ $direccion->cod_postal }}</td>
+    <td>{{ $direccion->municipio }}</td>
+    <td>{{ $direccion->usuario_id }}</td>
     <form action="{{ route('direccion.delete', $direccion->id) }}" method="POST">
         @csrf
         @method('DELETE')
-        <tr>{{ $direccion->id }} <-></tr>
-        <tr>{{ $direccion->calle }} <-></tr>
-        <tr>{{ $direccion->numero }} <-></tr>
-        <tr>{{ $direccion->cod_postal }} <-></tr>
-        <tr>{{ $direccion->municipio }} <-></tr>
-        <tr>{{ $direccion->usuario_id }}</tr>
-        <tr><button type="submit">Delete</button></tr>
-        <br>
+        <td><button type="submit">Delete</button></td>
     </form>
-</th>
+</tr>

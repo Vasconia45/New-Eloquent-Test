@@ -17,6 +17,6 @@ class Post extends Model
     ];
 
     public function usuario(){
-        return $this->hasMany('App\Models\Usuario');
+        return $this->belongsTo('App\Models\Usuario');
     }
 }

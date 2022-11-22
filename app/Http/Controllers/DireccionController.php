@@ -9,7 +9,7 @@ class DireccionController extends Controller
 {
     public function show(){
         $direcciones = Direccione::all();
-        return view('layouts.createdirecciones', ['direcciones' => $direcciones]);
+        return view('createdirecciones', ['direcciones' => $direcciones]);
     }
 
     public function create(Request $request){

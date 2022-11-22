@@ -11,6 +11,7 @@
                 <form>
                     <button type="submit" formaction="{{ route('newuser') }}">New Usuario</button>
                     <button type="submit" formaction="{{ route('newdireccion') }}">New Direccion</button>
+                    <button type="submit" formaction="{{ route('newpost') }}">New Post</button>
                     <button type="submit" formaction="{{ route('asign') }}">Asigna Direccion a Usuario</button>
                 </form>
             </div>

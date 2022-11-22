@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('numero');
             $table->integer('cod_postal');
             $table->string('municipio');
-            $table->unsignedBigInteger('usuario_id')->unique();
+            $table->unsignedBigInteger('usuario_id')->unique()->nullable();
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

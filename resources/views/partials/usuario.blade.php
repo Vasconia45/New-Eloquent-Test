@@ -10,8 +10,6 @@
             </form>
         </td>
         <td>
-            <form action="{{ route('usuario.post', $usuario->id) }}" method="GET">
-                <button type="submit">Show Posts</button>
-            </form>
+            
         </td>
 </tr>

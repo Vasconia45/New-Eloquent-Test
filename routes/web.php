@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\DireccionController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,9 @@ Route::controller(DireccionController::class)->group(function(){
     Route::get('/direccion', 'show')->name('newdireccion');
     Route::post('/direccion', 'create')->name('direccion.create');
     Route::delete('/direccion/{id}', 'delete')->name('direccion.delete');
+});
+
+Route::controller(PostController::class)->group(function(){
+    Route::get('/post', 'show')->name('newpost');
+    Route::post('/post', 'create')->name('post.create');
 });

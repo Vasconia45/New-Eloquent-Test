@@ -10,13 +10,13 @@ class UsuarioController extends Controller
 {
     public function show(){
         $usuarios = Usuario::all();
-        return view('layouts.createusers', ['usuarios' => $usuarios]);
+        return view('createusers', ['usuarios' => $usuarios]);
     }
 
     public function showasign(){
         $usuarios = Usuario::all();
         $direcciones = Direccione::all();
-        return view('layouts.asign', ['usuarios' => $usuarios], ['direcciones' => $direcciones]);
+        return view('asign', ['usuarios' => $usuarios], ['direcciones' => $direcciones]);
     }
 
     public function asign(Request $request){

@@ -19,6 +19,6 @@ class PostController extends Controller
         $post->texto = $request->text;
         $post->usuario_id = $request->post;
         $post->save();
-        return redirect('/post')->with(['successful_message' => "The post has been created correctly."]);
+        return redirect('/usuario/posts/' . $post->usuario_id)->with(['successful_message' => "The post has been created correctly."]);
     }
 }

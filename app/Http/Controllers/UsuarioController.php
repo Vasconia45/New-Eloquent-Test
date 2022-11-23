@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Direccione;
+use App\Models\Post;
 
 class UsuarioController extends Controller
 {
@@ -39,5 +40,12 @@ class UsuarioController extends Controller
         $usuario = Usuario::find($id);
         $usuario->delete();
         return redirect('/usuario')->with(['successful_message' => "The user has been deleted corretcly."]);
+    }
+
+    public function userPost($id){
+        $usuario = Usuario::find($id);
+        $posts = Post::where('usuario_id', $id)
+        ->get();
+        return view('userPosts', ['usuario' => $usuario], ['posts' => $posts]);
     }
 }

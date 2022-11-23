@@ -24,6 +24,7 @@ Route::controller(UsuarioController::class)->group(function(){
     Route::delete('/usuario/{id}', 'delete')->name('usuario.delete');
     Route::get('/usuario/asign', 'showasign')->name('asign');
     Route::post('/usuario/asign', 'asign')->name('usuario.asign');
+    Route::post('/usuario/posts/{id}', 'userPost')->name('usuario.post');
 });
 
 Route::controller(DireccionController::class)->group(function(){

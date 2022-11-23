@@ -10,6 +10,9 @@
             </form>
         </td>
         <td>
-            
+            <form action="{{ route('usuario.post', $usuario->id) }}" method="POST">
+                @csrf
+                <button type="submit">Ver Posts</button>
+            </form>
         </td>
 </tr>

@@ -19,6 +19,25 @@ class PostController extends Controller
         $post->texto = $request->text;
         $post->usuario_id = $request->post;
         $post->save();
-        return redirect('/usuario/posts/' . $post->usuario_id)->with(['successful_message' => "The post has been created correctly."]);
+        return redirect('/usuario/posts/' . $post->usuario_id . '')->with(['successful_message' => "The post has been created correctly."]);
+    }
+
+    public function delete($id){
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->back()->with(['successful_message' => "The post has been deleted correctly."]);
+    }
+
+    public function showEdit($id){
+        $post = Post::find($id);
+        return view('editPost', ['post' => $post]);
+    }
+
+    public function edit(Request $request, $id){
+        $post = Post::find($id);
+        $post->titulo = $request->title;
+        $post->texto = $request->text;
+        $post->save();
+        return redirect('/usuario/posts/'. $post->usuario_id . '')->with(['successful_message' => "The post has been updated correctly."]);
     }
 }

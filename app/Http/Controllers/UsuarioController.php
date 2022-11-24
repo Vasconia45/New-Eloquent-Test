@@ -11,7 +11,8 @@ class UsuarioController extends Controller
 {
     public function show(){
         $usuarios = Usuario::all();
-        return view('createusers', ['usuarios' => $usuarios]);
+        $direcciones = DIreccione::all();
+        return view('createusers', ['usuarios' => $usuarios], ['direcciones' => $direcciones]);
     }
 
     public function showasign(){

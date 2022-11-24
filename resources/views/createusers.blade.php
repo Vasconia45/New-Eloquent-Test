@@ -30,7 +30,7 @@
                 <thead>Usuarios:</thead>
                 <br>
                 <tbody>
-                    @each('partials.usuario', $usuarios, 'usuario', 'partials.empty')
+                    @each('partials.usuario', $usuarios, 'usuario', $direcciones, $dir 'partials.empty')
                 </tbody>
             <table>
         </div>

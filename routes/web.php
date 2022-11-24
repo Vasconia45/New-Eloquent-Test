@@ -25,6 +25,7 @@ Route::controller(UsuarioController::class)->group(function(){
     Route::get('/usuario/asign', 'showasign')->name('asign');
     Route::post('/usuario/asign', 'asign')->name('usuario.asign');
     Route::post('/usuario/posts/{id}', 'userPost')->name('usuario.post');
+    Route::get('/usuario/posts/{id}', 'userPost')->name('usuario.post');
 });
 
 Route::controller(DireccionController::class)->group(function(){
@@ -36,4 +37,7 @@ Route::controller(DireccionController::class)->group(function(){
 Route::controller(PostController::class)->group(function(){
     Route::get('/post', 'show')->name('newpost');
     Route::post('/post', 'create')->name('post.create');
+    Route::delete('/post/{id}', 'delete')->name('post.delete');
+    Route::get('/post/{id}', 'showEdit')->name('editpost');
+    Route::put('/post/{id}', 'edit')->name('post.update');
 });

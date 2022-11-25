@@ -2,6 +2,7 @@
         <td>{{ $usuario->id }} </td>
         <td>{{ $usuario->nombre }} </td>
         <td>{{ $usuario->apellido }}</td>
+        <td>{{ $usuario->direccion->cod_postal }}</td>
         <td>
             <form action="{{ route('usuario.delete', $usuario->id) }}" method="POST">
             @csrf

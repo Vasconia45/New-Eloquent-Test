@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\DireccionController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TemaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,10 @@ Route::controller(PostController::class)->group(function(){
     Route::delete('/post/{id}', 'delete')->name('post.delete');
     Route::get('/post/{id}', 'showEdit')->name('editpost');
     Route::put('/post/{id}', 'edit')->name('post.update');
+});
+
+Route::controller(TemaController::class)->group(function(){
+    Route::get('/tema', 'show')->name('newtema');
+    Route::post('/tema', 'create')->name('tema.create');
+    Route::delete('/tema/{tema}', 'delete')->name('tema.delete');
 });

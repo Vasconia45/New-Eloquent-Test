@@ -2,7 +2,11 @@
         <td>{{ $usuario->id }} </td>
         <td>{{ $usuario->nombre }} </td>
         <td>{{ $usuario->apellido }}</td>
-        <td>{{ $usuario->direccion->cod_postal }}</td>
+        @if(!isset($usuario->direccion->cod_postal))
+            <td>-<td>
+        @else
+            <td>{{ $usuario->direccion->cod_postal }}</td>
+        @endif
         <td>
             <form action="{{ route('usuario.delete', $usuario->id) }}" method="POST">
             @csrf

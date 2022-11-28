@@ -16,14 +16,7 @@
                 <div>
                     <label>Temas:</label>
                     <div>
-                    <input type="checkbox" id="viajes" name="viajes" value="viajes">
-                    <label for="viajes"> Viajes </label><br>
-                    <input type="checkbox" id="deportes" name="deportes" value="deportes">
-                    <label for="deportes"> Deportes </label><br>
-                    <input type="checkbox" id="trabajos" name="trabajos" value="trabajos">
-                    <label for="trabajos"> Trabajos </label><br>
-                    <input type="checkbox" id="politica" name="politica" value="politica">
-                    <label for="politica">Politica</label><br><br>
+                        @each('partials.temasOption', $temas, 'tema', 'partials.empty')
                     </div>
                 </div>
 

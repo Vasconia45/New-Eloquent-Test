@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Post;
+use App\Models\Tema;
 
 class PostController extends Controller
 {
     public function show(){
         $usuarios = Usuario::all();
-        return view('createposts', ['usuarios' => $usuarios]);
+        $temas = Tema::all();
+        return view('createposts', ['usuarios' => $usuarios], ['temas' => $temas]);
     }
 
     public function create(Request $request){
@@ -19,6 +21,9 @@ class PostController extends Controller
         $post->texto = $request->text;
         $post->usuario_id = $request->post;
         $post->save();
+        foreach($request->temas as $tema){
+            $post->temas()->attach($tema);
+        }
         return redirect('/usuario/posts/' . $post->usuario_id . '')->with(['successful_message' => "The post has been created correctly."]);
     }
 

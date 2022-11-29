@@ -25,9 +25,15 @@ Route::get('users', function(){
     return Usuario::all();
 });
 
-Route::get('users/posts/{id}', function($id){
+Route::get('/posts/{id}', function($id){
     $posts = Post::where('usuario_id', $id)
     ->orderBy('titulo', 'ASC')
+    ->get();
+    return $posts;
+});
+
+Route::post('/posts/recent', function(){
+    $posts = Post::where('created_at', '2022-11-29')
     ->get();
     return $posts;
 });

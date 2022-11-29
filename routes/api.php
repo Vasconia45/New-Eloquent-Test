@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Usuario;
+use App\Models\Post;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +19,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('users', function(){
+    return Usuario::all();
+});
+
+Route::get('users/posts/{id}', function($id){
+    $posts = Post::where('usuario_id', $id)
+    ->orderBy('titulo', 'ASC')
+    ->get();
+    return $posts;
 });

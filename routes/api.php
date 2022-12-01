@@ -32,8 +32,10 @@ Route::get('/posts/{id}', function($id){
     return $posts;
 });
 
-Route::post('/posts/recent', function(){
-    $posts = Post::where('created_at', '2022-11-29')
+Route::get('/post/recent', function(){
+    $posts = Post::where('created_at', '<', now())
+    ->limit(12)
+    ->orderBy('created_at', 'DESC')
     ->get();
     return $posts;
 });

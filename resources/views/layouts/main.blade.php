@@ -5,6 +5,9 @@
     @if(session('successful_message'))
         {{ session('successful_message') }}
     @endif
+    @if(session('error_message'))
+        {{ session('error_message') }}
+    @endif
         <div>
             <h1>@yield('title', "Menu")</h1>
             <div>

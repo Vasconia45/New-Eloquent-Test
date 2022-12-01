@@ -13,7 +13,11 @@ class Usuario extends Model
     protected $fillable = [
         'id',
         'nombre',
-        'apellido'
+        'apellido',
+        'age',
+        'email',
+        'date_of_birth',
+        'gender'
     ];
 
     public function direccion(){

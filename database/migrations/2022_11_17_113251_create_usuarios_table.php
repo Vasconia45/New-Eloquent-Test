@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('apellido');
+            $table->integer('age');
+            $table->string('email');
+            $table->date('date_of_birth');
+            $table->enum('gender', ['female'. 'male']);
             $table->timestamps();
         });
     }

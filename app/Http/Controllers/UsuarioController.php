@@ -32,27 +32,27 @@ class UsuarioController extends Controller
     public function create(Request $request){
         $validateUser = $request->validate([
             'nombre' => 'required',
-            /*'apellido' => 'required',
+            'apellido' => 'required',
             'age' => 'required',
-            'email' => 'required|email|unique',
+            'email' => 'required',
             'date_of_birth' => 'required',
-            'gender' => 'required|in:female,male'*/
+            'gender' => 'required|in:female,male'
         ]);
         if($validateUser){
             $usuario = new Usuario;
             $usuario->nombre = $request->nombre;
             $usuario->apellido = $request->apellido;
-            $usuario->age = $request->edad;
+            $usuario->age = $request->age;
             $usuario->email = $request->email;
-            $usuario->date_of_birth = $request->date_birth;
+            $usuario->date_of_birth = $request->date_of_birth;
             $usuario->gender = $request->gender;
             $usuario->save();
             return redirect('/usuario')->with(['successful_message' => "El usuario se creo correctamente."]);
         }
         else{
             return back()->with(['error_message' => "Hubo un error al crear el usuario."]);
-    }
         }
+    }
 
     public function delete($id){
         $usuario = Usuario::find($id);
